@@ -1,7 +1,11 @@
 package com.example.role_aleatorio.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="tb_category")
@@ -13,6 +17,10 @@ public class Category implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "category" )
+    private List<Place> places = new ArrayList<>();
 
     public Category(){}
 
@@ -37,5 +45,12 @@ public class Category implements Serializable {
         this.name = name;
     }
 
+    public List<Place> getPlaces() {
+        return places;
+    }
+
+    public void addPlaces(Place place) {
+        places.add(place);
+    }
 
 }

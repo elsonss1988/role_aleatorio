@@ -1,5 +1,8 @@
 package com.example.role_aleatorio.entities;
 
+import com.example.role_aleatorio.dto.PlaceDTO;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -13,22 +16,44 @@ public class Place implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
+
+    @Column(columnDefinition ="TEXT")
     private String imagem;
     private String local;
     private double cost;
-    private String describe;
-    private long rating;
+
+    @Column(columnDefinition ="TEXT")
+    private String description;
+    private long like;
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    public Category category;
 
     public  Place(){}
 
-    public Place(long id, String name, String imagem, String local, double cost, String describe, long rating) {
+    public Place(long id, String name, String imagem, String local,
+                 double cost, String description, long like, Category category ) {
         this.id = id;
         this.name = name;
         this.imagem = imagem;
         this.local = local;
         this.cost = cost;
-        this.describe = describe;
-        this.rating = rating;
+        this.description = description;
+        this.like = like;
+        this.category = category;
+    }
+
+    public Place(PlaceDTO entity) {
+        this.setId(entity.getId());
+        this.setName(entity.getName());
+        this.setImagem(entity.getImagem());
+        this.setLocal(entity.getLocal());
+        this.setCost(entity.getCost());
+        this.setDescription(entity.getDescription());
+        this.setLike(entity.getLike());
+        this.setCategory(entity.getCategory());
     }
 
     public long getId() {
@@ -71,20 +96,28 @@ public class Place implements Serializable {
         this.cost = cost;
     }
 
-    public String getDescribe() {
-        return describe;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescribe(String describe) {
-        this.describe = describe;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public long getRating() {
-        return rating;
+    public long getLike() {
+        return like;
     }
 
-    public void setRating(long rating) {
-        this.rating = rating;
+    public void setLike(long like) {
+        this.like = like;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     @Override

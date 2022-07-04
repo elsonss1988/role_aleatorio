@@ -1,20 +1,20 @@
 package com.example.role_aleatorio.dto;
 
 import com.example.role_aleatorio.entities.Category;
+import com.example.role_aleatorio.entities.Place;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
-@Entity
-@Table(name="tb_category")
+
 public class CategoryDTO implements Serializable {
     public static final long serialVersionUID=1l;
 
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
+    private List<PlaceDTO> places = new ArrayList<>();
 
     public CategoryDTO(){}
 
@@ -27,6 +27,7 @@ public class CategoryDTO implements Serializable {
         this.setId(entities.getId());
         this.setName(entities.getName());
     }
+
 
     public long getId() {
         return id;
@@ -44,5 +45,11 @@ public class CategoryDTO implements Serializable {
         this.name = name;
     }
 
+    public List<PlaceDTO> getPlaces() {
+        return places;
+    }
 
+    public void addPlaces(PlaceDTO place) {
+        places.add(place);
+    }
 }

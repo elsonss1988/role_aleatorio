@@ -1,8 +1,11 @@
 package com.example.role_aleatorio.services;
 
 import com.example.role_aleatorio.dto.CategoryDTO;
+import com.example.role_aleatorio.dto.PlaceDTO;
 import com.example.role_aleatorio.entities.Category;
+import com.example.role_aleatorio.entities.Place;
 import com.example.role_aleatorio.repository.CategoryRepository;
+import com.example.role_aleatorio.repository.PlaceRepository;
 import com.example.role_aleatorio.services.exceptions.ResourceNotFoundExceptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +21,9 @@ public class CategoryServices {
     @Autowired
     private CategoryRepository categoryRepository;
 
+    @Autowired
+    private PlaceRepository placeRepository;
+
     @Transactional(readOnly = true)
     public List<CategoryDTO> findAll(){
         List<Category> list = categoryRepository.findAll();
@@ -29,6 +35,13 @@ public class CategoryServices {
         Optional<Category> category = categoryRepository.findById(id);
         Category entity=category.orElseThrow(()-> new ResourceNotFoundExceptions("Sorry, Não encontramos nada"));
         CategoryDTO dto = new CategoryDTO(entity);
+        for (Place place:placeRepository.findAll()) {
+            if(place.getCategory().getId() == dto.getId()) {
+                dto.getPlaces().add(new PlaceDTO(place));
+            }
+        };
+
+
         return dto;
     }
 }

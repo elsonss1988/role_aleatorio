@@ -5,6 +5,7 @@ import com.example.role_aleatorio.dto.PlaceDTO;
 import com.example.role_aleatorio.entities.Place;
 import com.example.role_aleatorio.repository.PlaceRepository;
 import com.example.role_aleatorio.services.exceptions.ResourceNotFoundExceptions;
+import jdk.jfr.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -33,4 +34,12 @@ public class PlaceServices {
       PlaceDTO dto=  new PlaceDTO(entity);
       return dto;
     }
+
+    @Transactional
+    public PlaceDTO updateRating(Long id){
+        PlaceDTO placeRecovery=findById(id);
+        placeRecovery.setRating(placeRecovery.getRating()+1);
+        return new PlaceDTO(placeRepository.save(new Place(placeRecovery)));
+    }
+
 }

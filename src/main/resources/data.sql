@@ -2,7 +2,7 @@ INSERT INTO tb_category(name) VALUES('Cultura');
 INSERT INTO tb_category(name) VALUES('Noturno');
 INSERT INTO tb_category(name) VALUES('Parques');
 
-INSERT INTO tb_place(name,cost,description, imagem, local, like, category_id)
+INSERT INTO tb_place(name,cost,description, imagem, local, rating, category_id)
 VALUES('Parque Ibirapuera',
        '0.00',
        'É o local ideal para passar uma tarde inteira, seja nos tranquilos dias de semana, seja aos sábados e domingos, quando se transforma em uma cidade de 300 000 pessoas. Entre as 160 espécies de animais. Fonte: https://vejasp.abril.com.br/estabelecimento/parque-do-ibirapuera ',
@@ -11,7 +11,7 @@ VALUES('Parque Ibirapuera',
        5,
        3);
 
-INSERT INTO tb_place(name,cost,description, imagem, local, like, category_id)
+INSERT INTO tb_place(name,cost,description, imagem, local, rating, category_id)
 VALUES('Parque Trianon',
        '0.00',
        'Trata-se de um resquício remanescente da Mata Atlântica original e um dos parques centrais mais pesquisados da cidade. No início da década de 1910, no local onde hoje se localiza o MASP, foi construído um belvedere com projeto do arquiteto Ramos de Azevedo, que ficou conhecido como Trianon. Durante as décadas de 1920 e 1930, frequentado pela intelectualidade paulistana, o parque e o belvedere transformaram-se em símbolo da riqueza da elite paulistana e formaram um harmonioso conjunto integrado. Entre os paisagistas responsáveis pelo projeto do parque está o francês Paul Villon e o inglês Barry Parker.',
@@ -20,7 +20,7 @@ VALUES('Parque Trianon',
        5,
        3);
 
-INSERT INTO tb_place(name,cost,description, imagem, local, like, category_id)
+INSERT INTO tb_place(name,cost,description, imagem, local, rating, category_id)
 VALUES('Rua Augusta',
        '0.00',
        'A Rua Augusta é um cartão postal da cidade de São Paulo. Por isso é um lugar que gostamos bastante e que achamos nossa cara. Lá você vai encontrar roqueiros, clubbers, skatistas, artistas de rua e pessoas usando roupas psicodélicas. Digamos que a Rua Augusta foi feita para todos',
@@ -29,7 +29,7 @@ VALUES('Rua Augusta',
        5,
        2);
 
-INSERT INTO tb_place(name,cost,description, imagem, local, like, category_id)
+INSERT INTO tb_place(name,cost,description, imagem, local, rating, category_id)
 VALUES('Museu de Arte de São Paulo ',
        '0.00',
        'O Museu de Arte de São Paulo é um museu privado sem fins lucrativos, fundado em 1947 pelo empresário e mecenas Assis Chateaubriand (1892-1968), tornando-se o primeiro museu moderno no país. Chateaubriand convidou o crítico e marchand italiano Pietro Maria Bardi (1900-1999) para dirigir o MASP, e Lina Bo Bardi (1914-1992) para desenvolver o projeto arquitetônico e expográfico. Mais importante acervo de arte europeia do Hemisfério Sul, hoje a coleção do MASP reúne mais de 11 mil obras, incluindo pinturas, esculturas, objetos, fotografias, vídeos e vestuário de diversos períodos, abrangendo a produção europeia, africana, asiática e das Américas.',

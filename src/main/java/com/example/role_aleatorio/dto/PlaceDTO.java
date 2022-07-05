@@ -15,7 +15,7 @@ public class PlaceDTO implements Serializable {
     private String local;
     private double cost;
     private String description;
-    private long like;
+    private long rating;
     private Category category;
 
     public PlaceDTO(){}
@@ -27,7 +27,7 @@ public class PlaceDTO implements Serializable {
         this.local = local;
         this.cost = cost;
         this.description = description;
-        this.like = like;
+        this.rating = rating;
         this.category=category;
     }
 
@@ -38,7 +38,7 @@ public class PlaceDTO implements Serializable {
         this.setLocal(entities.getLocal());
         this.setCost(entities.getCost());
         this.setDescription(entities.getDescription());
-        this.setLike(entities.getLike());
+        this.setRating(entities.getRating());
         this.setCategory(entities.getCategory());
     }
 
@@ -91,12 +91,12 @@ public class PlaceDTO implements Serializable {
         this.description = description;
     }
 
-    public long getLike() {
-        return like;
+    public long getRating() {
+        return rating;
     }
 
-    public void setLike(long like) {
-        this.like = like;
+    public void setRating(long rating) {
+        this.rating = rating;
     }
 
     public Category getCategory() {

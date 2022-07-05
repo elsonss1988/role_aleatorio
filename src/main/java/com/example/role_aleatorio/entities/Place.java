@@ -24,7 +24,7 @@ public class Place implements Serializable {
 
     @Column(columnDefinition ="TEXT")
     private String description;
-    private long like;
+    private long rating;
 
     @JsonIgnore
     @ManyToOne
@@ -34,14 +34,14 @@ public class Place implements Serializable {
     public  Place(){}
 
     public Place(long id, String name, String imagem, String local,
-                 double cost, String description, long like, Category category ) {
+                 double cost, String description, long rating, Category category ) {
         this.id = id;
         this.name = name;
         this.imagem = imagem;
         this.local = local;
         this.cost = cost;
         this.description = description;
-        this.like = like;
+        this.rating = rating;
         this.category = category;
     }
 
@@ -52,7 +52,7 @@ public class Place implements Serializable {
         this.setLocal(entity.getLocal());
         this.setCost(entity.getCost());
         this.setDescription(entity.getDescription());
-        this.setLike(entity.getLike());
+        this.setRating(entity.getRating());
         this.setCategory(entity.getCategory());
     }
 
@@ -104,12 +104,12 @@ public class Place implements Serializable {
         this.description = description;
     }
 
-    public long getLike() {
-        return like;
+    public long getRating() {
+        return rating;
     }
 
-    public void setLike(long like) {
-        this.like = like;
+    public void setRating(long rating) {
+        this.rating = rating;
     }
 
     public Category getCategory() {
